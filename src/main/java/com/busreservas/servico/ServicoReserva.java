@@ -1,7 +1,6 @@
 package com.busreservas.servico;
 
 import com.busreservas.model.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.Map;
  */
 public class ServicoReserva {
 
-    private List<Reserva> reservas;
-    private List<Bilhete> bilhetes;
-    private Map<Integer, ListaEspera> listasEspera; // chave = viagemId
+    private final List<Reserva> reservas;
+    private final List<Bilhete> bilhetes;
+    private final Map<Integer, ListaEspera> listasEspera; // chave = viagemId
     private int proximoIdReserva = 1;
     private int proximoIdBilhete = 1;
 

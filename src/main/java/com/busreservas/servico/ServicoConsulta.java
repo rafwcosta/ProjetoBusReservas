@@ -3,7 +3,6 @@ package com.busreservas.servico;
 import com.busreservas.model.Assento;
 import com.busreservas.model.Usuario;
 import com.busreservas.model.Viagem;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  */
 public class ServicoConsulta {
 
-    private ServicoViagem servicoViagem;
+    private final ServicoViagem servicoViagem;
 
     public ServicoConsulta(ServicoViagem servicoViagem) {
         this.servicoViagem = servicoViagem;

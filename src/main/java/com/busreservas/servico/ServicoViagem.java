@@ -4,7 +4,6 @@ import com.busreservas.model.Horario;
 import com.busreservas.model.LinhaOnibus;
 import com.busreservas.model.Usuario;
 import com.busreservas.model.Viagem;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,8 +16,8 @@ import java.util.Set;
  */
 public class ServicoViagem {
 
-    private List<Viagem> viagens;
-    private Set<String> chavesViagens; // US03 - Impedir duplicatas
+    private final List<Viagem> viagens;
+    private final Set<String> chavesViagens; // US03 - Impedir duplicatas
     private int proximoId = 1;
 
     public ServicoViagem() {
@@ -27,8 +26,7 @@ public class ServicoViagem {
     }
 
     // US03/T4 - Cadastrar viagem
-    public Viagem cadastrarViagem(Usuario usuario, LinhaOnibus linha, Horario horario,
-                                   LocalDate data, int capacidade) {
+    public Viagem cadastrarViagem(Usuario usuario, LinhaOnibus linha, Horario horario, LocalDate data, int capacidade) {
         if (!usuario.podeCadastrarViagens()) {
             throw new SecurityException("Usuário sem permissão para cadastrar viagens.");
         }
