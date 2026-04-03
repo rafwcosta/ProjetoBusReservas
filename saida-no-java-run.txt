@@ -1,0 +1,302 @@
+=======================================================
+  SISTEMA DE RESERVAS DE PASSAGENS INTERESTADUAIS
+=======================================================
+
+
+=======================================================
+  US00 - CONTROLE DE PERFIS DE USUARIO
+=======================================================
+
+Login realizado: Admin Sistema [ADMINISTRADOR]
+=== Permissões do perfil: ADMINISTRADOR ===
+Gerenciar Linhas:         true
+Gerenciar Horários:       true
+Cadastrar Viagens:        true
+Reservar Passagem:        false
+Múltiplos Assentos:       true
+Gerenciar Lista Espera:   true
+Cancelar Reserva:         true
+Consultar Viagens:        true
+
+=== Permissões do perfil: ATENDENTE ===
+Gerenciar Linhas:         false
+Gerenciar Horários:       false
+Cadastrar Viagens:        false
+Reservar Passagem:        true
+Múltiplos Assentos:       true
+Gerenciar Lista Espera:   true
+Cancelar Reserva:         true
+Consultar Viagens:        true
+
+=== Permissões do perfil: PASSAGEIRO ===
+Gerenciar Linhas:         false
+Gerenciar Horários:       false
+Cadastrar Viagens:        false
+Reservar Passagem:        true
+Múltiplos Assentos:       false
+Gerenciar Lista Espera:   false
+Cancelar Reserva:         true
+Consultar Viagens:        true
+Usuário cadastrado: [Usuário] ID: 3 | Nome: Atendente Maria | Email: maria@bus.com | Perfil: ATENDENTE
+Passageiro cadastrado: [Passageiro] ID: 4 | Nome: Carlos Silva | CPF: 123.456.789-00 | Tel: 77999990001
+Passageiro cadastrado: [Passageiro] ID: 5 | Nome: Ana Souza | CPF: 987.654.321-00 | Tel: 77999990002
+Passageiro cadastrado: [Passageiro] ID: 6 | Nome: Pedro Lima | CPF: 111.222.333-00 | Tel: 77999990003
+
+=======================================================
+  US01 - GERENCIAMENTO DE LINHAS
+=======================================================
+
+Linha cadastrada: [Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horário(s)
+Linha cadastrada: [Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horário(s)
+Linha cadastrada: [Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horário(s)
+
+Linhas cadastradas:
+[Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horário(s)
+[Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horário(s)
+[Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horário(s)
+[BLOQUEADO] Já existe uma linha com o código: BSB-001
+
+=======================================================
+  US02 - GERENCIAMENTO DE HORARIOS
+=======================================================
+
+Horário adicionado à linha BSB-001: [Horário] 06:00
+Horário adicionado à linha BSB-001: [Horário] 14:00
+Horário adicionado à linha SSA-001: [Horário] 08:30
+Horário adicionado à linha VCA-001: [Horário] 07:00
+[BLOQUEADO] Já existe um horário de partida 06:00 nesta linha.
+[BLOQUEADO] Formato de hora inválido: '25:99'. Use HH:mm (ex: 06:00).
+
+=======================================================
+  US03 - CADASTRO DE VIAGENS
+=======================================================
+
+Viagem cadastrada: [Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #3] Linha: SSA-001 | Data: 05/04/2026 | Horário: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+[BLOQUEADO] Já existe uma viagem cadastrada para esta linha, data e horário: BSB-001_2026-04-04_06:00
+
+Estado do Sistema central:
+[Sistema] Linhas: 3 | Viagens: 4 | Passageiros: 3
+
+=======================================================
+  US09 - CONSULTA DE INFORMACOES
+=======================================================
+
+=== Viagens Disponíveis ===
+[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #3] Linha: SSA-001 | Data: 05/04/2026 | Horário: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+
+=== Viagens em 2026-04-04 ===
+[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+
+=== Viagens com destino: Sao Paulo ===
+[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+
+=== Viagens da linha: BSB-001 ===
+[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+
+=== Viagens com partida às 06:00 ===
+[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+
+========================================
+       DETALHES DA VIAGEM #1
+========================================
+Linha:      BSB-001 - Brasilia - Sao Paulo
+Origem:     Brasilia
+Destino:    Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Capacidade: 4 assentos
+Disponíveis:4 assentos
+Status:     DISPONIVEL
+Valor:      R$ 189,90
+----------------------------------------
+MAPA DE ASSENTOS:
+[Assento 01 | DISPONIVEL]  [Assento 02 | DISPONIVEL]  [Assento 03 | DISPONIVEL]  [Assento 04 | DISPONIVEL]  
+
+========================================
+
+=======================================================
+  US05 - RESERVA DE PASSAGEM
+=======================================================
+
+Reserva confirmada!
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0001-BSB-001-1
+Passageiro: Carlos Silva
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    1
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+Reserva confirmada!
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0002-BSB-001-2
+Passageiro: Ana Souza
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    2
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+[BLOQUEADO] Assento 1 já está reservado.
+
+=======================================================
+  US06 - LISTA DE ESPERA
+=======================================================
+
+Reserva confirmada!
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0003-BSB-001-3
+Passageiro: Pedro Lima
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    3
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+Reserva confirmada!
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0004-BSB-001-4
+Passageiro: Carlos Silva
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    4
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+Viagem lotada! Adicionando Ana Souza à lista de espera...
+Ana Souza adicionado à lista de espera. Posição: 1º
+Viagem lotada! Adicionando Pedro Lima à lista de espera...
+Pedro Lima adicionado à lista de espera. Posição: 2º
+=== Lista de Espera - Viagem #1 ===
+1º [Espera] Passageiro: Ana Souza | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
+2º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
+
+=======================================================
+  US07 - CANCELAMENTO DE RESERVA
+=======================================================
+
+Cancelando reserva de Carlos Silva (assento 1)...
+Reserva #1 cancelada. Assento 1 liberado.
+Promovendo Ana Souza da lista de espera...
+Reserva confirmada!
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0005-BSB-001-1
+Passageiro: Ana Souza
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    06:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    1
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+
+Lista de espera apos cancelamento:
+=== Lista de Espera - Viagem #1 ===
+1º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
+
+=======================================================
+  US08 - RESERVA DE MULTIPLOS ASSENTOS
+=======================================================
+
+3 bilhete(s) gerado(s) com sucesso!
+3 bilhete(s) gerado(s) para o grupo.
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0006-BSB-001-1
+Passageiro: Pedro Lima
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    14:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    1
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0007-BSB-001-2
+Passageiro: Pedro Lima
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    14:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    2
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+==============================
+        BILHETE DE VIAGEM
+==============================
+Código:     BLT-0008-BSB-001-3
+Passageiro: Pedro Lima
+Linha:      Brasilia - Sao Paulo
+Data:       04/04/2026
+Partida:    14:00
+Origem:     Brasilia
+Destino:    Sao Paulo
+Assento:    3
+Valor:      R$ 189,90
+Status:     CONFIRMADA
+==============================
+[BLOQUEADO] Apenas atendentes e administradores podem reservar múltiplos assentos.
+
+=======================================================
+  RESUMO FINAL - RESERVAS POR PASSAGEIRO
+=======================================================
+
+=== Reservas de Carlos Silva ===
+[Reserva #4] Passageiro: Carlos Silva | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 4 | Status: CONFIRMADA
+
+=== Reservas de Ana Souza ===
+[Reserva #2] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 2 | Status: CONFIRMADA
+[Reserva #5] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 1 | Status: CONFIRMADA
+
+=== Reservas de Pedro Lima ===
+[Reserva #3] Passageiro: Pedro Lima | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 3 | Status: CONFIRMADA
+[Reserva #6] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 1 | Status: CONFIRMADA
+[Reserva #7] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 2 | Status: CONFIRMADA
+[Reserva #8] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 3 | Status: CONFIRMADA
+
+=======================================================
+  SISTEMA ENCERRADO COM SUCESSO
+=======================================================
