@@ -1,7 +1,6 @@
 package com.busreservas.model;
 
 import com.busreservas.estrutura.FilaEstatica;
-
 import java.time.LocalDateTime;
 
 /**
@@ -12,10 +11,10 @@ import java.time.LocalDateTime;
 public class ListaEspera {
 
     public static class EntradaEspera {
-        private Passageiro passageiro;
-        private Viagem viagem;
-        private LocalDateTime datasolicitacao;
-        private int quantidadeAssentos;
+        private final Passageiro passageiro;
+        private final Viagem viagem;
+        private final LocalDateTime datasolicitacao;
+        private final int quantidadeAssentos;
 
         public EntradaEspera(Passageiro passageiro, Viagem viagem, int quantidadeAssentos) {
             this.passageiro = passageiro;
@@ -37,8 +36,8 @@ public class ListaEspera {
         }
     }
 
-    private FilaEstatica<EntradaEspera> fila;
-    private int viagemId;
+    private final FilaEstatica<EntradaEspera> fila;
+    private final int viagemId;
 
     public ListaEspera(int viagemId, int capacidadeFila) {
         this.viagemId = viagemId;

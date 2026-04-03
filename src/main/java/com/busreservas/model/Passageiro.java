@@ -11,7 +11,7 @@ public class Passageiro extends Usuario {
 
     private String cpf;
     private String telefone;
-    private List<Reserva> minhasReservas;
+    private final List<Reserva> minhasReservas;
 
     public Passageiro(int id, String nome, String email, String senha, String cpf, String telefone) {
         super(id, nome, email, senha, PerfilUsuario.PASSAGEIRO);
