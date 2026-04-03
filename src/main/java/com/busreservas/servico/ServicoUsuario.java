@@ -3,7 +3,6 @@ package com.busreservas.servico;
 import com.busreservas.model.Passageiro;
 import com.busreservas.model.PerfilUsuario;
 import com.busreservas.model.Usuario;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,8 @@ import java.util.List;
  */
 public class ServicoUsuario {
 
-    private List<Usuario> usuarios;
-    private List<Passageiro> passageiros;
+    private final List<Usuario> usuarios;
+    private final List<Passageiro> passageiros;
     private int proximoId = 1;
 
     public ServicoUsuario() {
@@ -49,8 +48,7 @@ public class ServicoUsuario {
     }
 
     // Cadastrar passageiro (self-service)
-    public Passageiro cadastrarPassageiro(String nome, String email, String senha,
-                                           String cpf, String telefone) {
+    public Passageiro cadastrarPassageiro(String nome, String email, String senha, String cpf, String telefone) {
         for (Usuario u : usuarios) {
             if (u.getEmail().equalsIgnoreCase(email)) {
                 throw new IllegalArgumentException("Email já cadastrado: " + email);
