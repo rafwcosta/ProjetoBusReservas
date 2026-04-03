@@ -200,8 +200,8 @@ Ana Souza adicionado à lista de espera. Posição: 1º
 Viagem lotada! Adicionando Pedro Lima à lista de espera...
 Pedro Lima adicionado à lista de espera. Posição: 2º
 === Lista de Espera - Viagem #1 ===
-1º [Espera] Passageiro: Ana Souza | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
-2º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
+1º [Espera] Passageiro: Ana Souza | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
+2º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
 
 =======================================================
   US07 - CANCELAMENTO DE RESERVA
@@ -228,7 +228,7 @@ Status:     CONFIRMADA
 
 Lista de espera apos cancelamento:
 === Lista de Espera - Viagem #1 ===
-1º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 19:31
+1º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
 
 =======================================================
   US08 - RESERVA DE MULTIPLOS ASSENTOS
