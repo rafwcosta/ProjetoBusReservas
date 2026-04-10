@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Sistema de Reservas de Passagens Interestaduais por Onibus
- * Demonstracao completa de todas as User Storie
+ * Demonstracao completa de todas as User Stori
  */
 public class Main {
 
