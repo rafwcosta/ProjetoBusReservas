@@ -106,7 +106,7 @@ public class ServicoReserva {
 
     // US07 - Cancelar reserva e promover da lista de espera
     public boolean cancelar(Passageiro passageiro, int reservaId) {
-        // US07/T1 - Localizar reserva
+        // US07/T1 - Localizar a reserva
         Reserva reserva = buscarReservaPorId(reservaId);
         if (reserva == null) {
             System.out.println("Reserva #" + reservaId + " não encontrada.");
