@@ -112,3 +112,59 @@ public class Viagem {
                 getQuantidadeAssentosDisponiveis(), capacidadeTotal, status);
     }
 }
+
+// Bianca
+
+public class Viagem {
+
+    private LinhaOnibus linha;
+    private Horario horario;
+
+    public Viagem(LinhaOnibus linha, Horario horario) {
+        this.linha = linha;
+        this.horario = horario;
+    }
+
+    public LinhaOnibus getLinha() {
+        return linha;
+    }
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    @Override
+    public String toString() {
+        return "Viagem: " + linha.getCodigo() +
+               " | " + linha.getOrigem() +
+               " -> " + linha.getDestino() +
+               " | Horário: " + horario;
+    }
+
+// Cadastro de viagens
+
+public class CadastroViagens {
+
+    private FilaEstatica<Viagem> viagens;
+
+    public CadastroViagens(int capacidade) {
+        viagens = new FilaEstatica<>(capacidade);
+    }
+
+    public boolean cadastrar(Viagem viagem) {
+        return viagens.enqueue(viagem);
+    }
+
+    public Viagem remover() {
+        return viagens.dequeue();
+    }
+
+    public Viagem[] listar() {
+        return viagens.toArray();
+    }
+
+    @Override
+    public String toString() {
+        return viagens.toString();
+    }
+}

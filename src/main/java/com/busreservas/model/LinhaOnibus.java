@@ -5,74 +5,58 @@ import java.util.List;
 
 /**
  * US01 - Entidade LinhaOnibus
- * Responsável: Arthur
+ * Responsável: Bianca
  */
 public class LinhaOnibus {
 
-    private int id;
-    private String codigo;       // Ex: "BSB-001"
-    private String nome;         // Ex: "Brasília - São Paulo"
-    private Rota rota;
-    private List<Horario> horarios;
-    private double valorPassagem;
+    private String codigo;
+    private String origem;
+    private String destino;
 
-    public LinhaOnibus(int id, String codigo, String nome, Rota rota, double valorPassagem) {
-        if (codigo == null || codigo.trim().isEmpty()) {
-            throw new IllegalArgumentException("Código da linha não pode ser vazio.");
-        }
-        if (rota == null) {
-            throw new IllegalArgumentException("Rota não pode ser nula.");
-        }
-        this.id = id;
-        this.codigo = codigo.trim().toUpperCase();
-        this.nome = nome;
-        this.rota = rota;
-        this.valorPassagem = valorPassagem;
-        this.horarios = new ArrayList<>();
+    // Lista de horários
+    private FilaEstatica<Horario> horarios;
+
+    public LinhaOnibus(String codigo, String origem, String destino, int capacidadeHorarios) {
+        this.codigo = codigo;
+        this.origem = origem;
+        this.destino = destino;
+        this.horarios = new FilaEstatica<>(capacidadeHorarios);
     }
 
-    // US02/T2 - Associar horários à LinhaOnibus
-    public void adicionarHorario(Horario horario) {
-        if (horario == null) {
-            throw new IllegalArgumentException("Horário não pode ser nulo.");
+    // Adicionar horário
+    public boolean adicionarHorario(String horario) {
+        if (!Horario.isValido(horario)) {
+            return false;
         }
-        // Evitar horários duplicados
-        for (Horario h : horarios) {
-            if (h.getHora().equals(horario.getHora())) {
-                throw new IllegalArgumentException("Já existe um horário de partida " +
-                        horario.getHora() + " nesta linha.");
-            }
-        }
-        horarios.add(horario);
+        return horarios.enqueue(new Horario(horario));
     }
 
-    // US02/T4 - Remover horário
-    public boolean removerHorario(int horarioId) {
-        return horarios.removeIf(h -> h.getId() == horarioId);
+    // Remover horário
+    public boolean removerHorario(String horario) {
+        return horarios.remover(new Horario(horario));
     }
 
-    public List<Horario> getHorarios() {
-        return new ArrayList<>(horarios);
+    // Listar horários
+    public Horario[] listarHorarios() {
+        return horarios.toArray();
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public String getCodigo() {
+        return codigo;
+    }
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getOrigem() {
+        return origem;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
-
-    public Rota getRota() { return rota; }
-    public void setRota(Rota rota) { this.rota = rota; }
-
-    public double getValorPassagem() { return valorPassagem; }
-    public void setValorPassagem(double valorPassagem) { this.valorPassagem = valorPassagem; }
+    public String getDestino() {
+        return destino;
+    }
 
     @Override
     public String toString() {
-        return String.format("[Linha] %s | %s | %s | R$ %.2f | %d horário(s)",
-                codigo, nome, rota, valorPassagem, horarios.size());
+        return "Linha " + codigo + 
+               " | " + origem + " -> " + destino +
+               "\nHorários: " + horarios;
     }
 }
