@@ -18,7 +18,7 @@ public class Main {
         System.out.println("  SISTEMA DE RESERVAS DE PASSAGENS INTERESTADUAIS");
         System.out.println("=======================================================\n");
 
-        // Classe central do sistema (conforme diagrama de entidades)
+        // Classe central do sistema (conforme diagrama de entidades)       
         Sistema sistema = new Sistema();
 
         // Inicializar servicos
