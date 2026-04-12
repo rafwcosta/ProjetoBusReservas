@@ -1,46 +1,39 @@
 package com.busreservas.model;
 
-/**
- * US02 - Entidade Horario
- * Responsável: Bianca
- *
- * Atributos conforme diagrama de entidades:
- *   - hora (String no formato "HH:mm")
- */
 public class Horario {
 
-    private String horario;
+    private int id;
+    private String hora;
 
-    private static final Pattern PADRAO = 
-        Pattern.compile("^([01]\\d|2[0-3]):([0-5]\\d)$");
+    public Horario(int id, String hora) {
+        validarFormato(hora);
+        this.id = id;
+        this.hora = hora;
+    }
 
-    public Horario(String horario) {
-        if (!isValid(horario)) {
-            throw new IllegalArgumentException("Formato inválido. Use HH:mm");
+    private void validarFormato(String hora) {
+        if (hora == null || !hora.matches("^([01]\\d|2[0-3]):[0-5]\\d$")) {
+            throw new IllegalArgumentException(
+                    "Formato de hora invalido: '" + hora + "'. Use HH:mm (ex: 06:00).");
         }
-        this.horario = horario;
     }
 
-    public String getHorario() {
-        return horario;
+    public int getHoraEmMinutos() {
+        String[] partes = hora.split(":");
+        return Integer.parseInt(partes[0]) * 60 + Integer.parseInt(partes[1]);
     }
 
-    public static boolean isValido(String horario) {
-        if (horario == null) return false;
-        return PADRAO.matcher(horario).matches();
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getHora() { return hora; }
+    public void setHora(String hora) {
+        validarFormato(hora);
+        this.hora = hora;
     }
 
     @Override
     public String toString() {
-        return horario;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Horario)) return false;
-        Horario outro = (Horario) obj;
-        return horario.equals(outro.horario);
+        return String.format("[Horario] %s", hora);
     }
 }
-
