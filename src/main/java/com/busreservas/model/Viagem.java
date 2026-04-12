@@ -5,13 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * US03 - Entidade Viagem
- * Responsável: Gabriel
- *
- * Atributos conforme diagrama de entidades:
- *   - id, data, horario, assentos: List, listaEspera
- */
 public class Viagem {
 
     public enum StatusViagem {
@@ -31,9 +24,9 @@ public class Viagem {
     private int capacidadeTotal;
 
     public Viagem(int id, LinhaOnibus linha, Horario horario, LocalDate data, int capacidadeTotal) {
-        if (linha == null) throw new IllegalArgumentException("Linha não pode ser nula.");
-        if (horario == null) throw new IllegalArgumentException("Horário não pode ser nulo.");
-        if (data == null) throw new IllegalArgumentException("Data não pode ser nula.");
+        if (linha == null) throw new IllegalArgumentException("Linha nao pode ser nula.");
+        if (horario == null) throw new IllegalArgumentException("Horario nao pode ser nulo.");
+        if (data == null) throw new IllegalArgumentException("Data nao pode ser nula.");
         if (capacidadeTotal <= 0) throw new IllegalArgumentException("Capacidade deve ser positiva.");
 
         this.id = id;
@@ -48,14 +41,12 @@ public class Viagem {
         inicializarAssentos(capacidadeTotal);
     }
 
-    // US03/T4 - Inicializar assentos numerados de 1 até capacidade
     private void inicializarAssentos(int quantidade) {
         for (int i = 1; i <= quantidade; i++) {
             assentos.add(new Assento(i));
         }
     }
 
-    // US04/T4 - Buscar assento pelo número
     public Assento buscarAssento(int numero) {
         for (Assento a : assentos) {
             if (a.getNumero() == numero) return a;
@@ -86,7 +77,6 @@ public class Viagem {
         return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    // Chave única para impedir viagens duplicadas
     public String getChaveUnica() {
         return linha.getCodigo() + "_" + data.toString() + "_" + horario.getHora();
     }
@@ -107,64 +97,8 @@ public class Viagem {
 
     @Override
     public String toString() {
-        return String.format("[Viagem #%d] Linha: %s | Data: %s | Horário: %s | Assentos livres: %d/%d | Status: %s",
+        return String.format("[Viagem #%d] Linha: %s | Data: %s | Horario: %s | Assentos livres: %d/%d | Status: %s",
                 id, linha.getCodigo(), getDataFormatada(), horario.getHora(),
                 getQuantidadeAssentosDisponiveis(), capacidadeTotal, status);
-    }
-}
-
-// Bianca
-
-public class Viagem {
-
-    private LinhaOnibus linha;
-    private Horario horario;
-
-    public Viagem(LinhaOnibus linha, Horario horario) {
-        this.linha = linha;
-        this.horario = horario;
-    }
-
-    public LinhaOnibus getLinha() {
-        return linha;
-    }
-
-    public Horario getHorario() {
-        return horario;
-    }
-
-    @Override
-    public String toString() {
-        return "Viagem: " + linha.getCodigo() +
-               " | " + linha.getOrigem() +
-               " -> " + linha.getDestino() +
-               " | Horário: " + horario;
-    }
-
-// Cadastro de viagens
-
-public class CadastroViagens {
-
-    private FilaEstatica<Viagem> viagens;
-
-    public CadastroViagens(int capacidade) {
-        viagens = new FilaEstatica<>(capacidade);
-    }
-
-    public boolean cadastrar(Viagem viagem) {
-        return viagens.enqueue(viagem);
-    }
-
-    public Viagem remover() {
-        return viagens.dequeue();
-    }
-
-    public Viagem[] listar() {
-        return viagens.toArray();
-    }
-
-    @Override
-    public String toString() {
-        return viagens.toString();
     }
 }
