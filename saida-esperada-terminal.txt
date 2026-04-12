@@ -46,36 +46,36 @@ Passageiro cadastrado: [Passageiro] ID: 6 | Nome: Pedro Lima | CPF: 111.222.333-
   US01 - GERENCIAMENTO DE LINHAS
 =======================================================
 
-Linha cadastrada: [Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horário(s)
-Linha cadastrada: [Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horário(s)
-Linha cadastrada: [Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horário(s)
+Linha cadastrada: [Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horario(s)
+Linha cadastrada: [Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horario(s)
+Linha cadastrada: [Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horario(s)
 
 Linhas cadastradas:
-[Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horário(s)
-[Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horário(s)
-[Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horário(s)
+[Linha] BSB-001 | Brasilia - Sao Paulo | [Rota] Brasilia → Sao Paulo | 1015,0 km | ~720 min | R$ 189,90 | 0 horario(s)
+[Linha] SSA-001 | Salvador - Rio de Janeiro | [Rota] Salvador → Rio de Janeiro | 1650,0 km | ~960 min | R$ 249,90 | 0 horario(s)
+[Linha] VCA-001 | Vitoria da Conquista - Sao Paulo | [Rota] Vitoria da Conquista → Sao Paulo | 1400,0 km | ~900 min | R$ 210,00 | 0 horario(s)
 [BLOQUEADO] Já existe uma linha com o código: BSB-001
 
 =======================================================
   US02 - GERENCIAMENTO DE HORARIOS
 =======================================================
 
-Horário adicionado à linha BSB-001: [Horário] 06:00
-Horário adicionado à linha BSB-001: [Horário] 14:00
-Horário adicionado à linha SSA-001: [Horário] 08:30
-Horário adicionado à linha VCA-001: [Horário] 07:00
-[BLOQUEADO] Já existe um horário de partida 06:00 nesta linha.
-[BLOQUEADO] Formato de hora inválido: '25:99'. Use HH:mm (ex: 06:00).
+Horário adicionado à linha BSB-001: [Horario] 06:00
+Horário adicionado à linha BSB-001: [Horario] 14:00
+Horário adicionado à linha SSA-001: [Horario] 08:30
+Horário adicionado à linha VCA-001: [Horario] 07:00
+[BLOQUEADO] Ja existe um horario 06:00 nesta linha.
+[BLOQUEADO] Formato de hora invalido: '25:99'. Use HH:mm (ex: 06:00).
 
 =======================================================
   US03 - CADASTRO DE VIAGENS
 =======================================================
 
-Viagem cadastrada: [Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
-Viagem cadastrada: [Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
-Viagem cadastrada: [Viagem #3] Linha: SSA-001 | Data: 05/04/2026 | Horário: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
-Viagem cadastrada: [Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
-[BLOQUEADO] Já existe uma viagem cadastrada para esta linha, data e horário: BSB-001_2026-04-04_06:00
+Viagem cadastrada: [Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #2] Linha: BSB-001 | Data: 13/04/2026 | Horario: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #3] Linha: SSA-001 | Data: 14/04/2026 | Horario: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
+Viagem cadastrada: [Viagem #4] Linha: VCA-001 | Data: 13/04/2026 | Horario: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+[BLOQUEADO] Já existe uma viagem cadastrada para esta linha, data e horário: BSB-001_2026-04-13_06:00
 
 Estado do Sistema central:
 [Sistema] Linhas: 3 | Viagens: 4 | Passageiros: 3
@@ -85,27 +85,27 @@ Estado do Sistema central:
 =======================================================
 
 === Viagens Disponíveis ===
-[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
-[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
-[Viagem #3] Linha: SSA-001 | Data: 05/04/2026 | Horário: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
-[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+[Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 13/04/2026 | Horario: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #3] Linha: SSA-001 | Data: 14/04/2026 | Horario: 08:30 | Assentos livres: 44/44 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 13/04/2026 | Horario: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
 
-=== Viagens em 2026-04-04 ===
-[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
-[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
-[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+=== Viagens em 2026-04-13 ===
+[Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 13/04/2026 | Horario: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 13/04/2026 | Horario: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
 
 === Viagens com destino: Sao Paulo ===
-[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
-[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
-[Viagem #4] Linha: VCA-001 | Data: 04/04/2026 | Horário: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
+[Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 13/04/2026 | Horario: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #4] Linha: VCA-001 | Data: 13/04/2026 | Horario: 07:00 | Assentos livres: 44/44 | Status: DISPONIVEL
 
 === Viagens da linha: BSB-001 ===
-[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
-[Viagem #2] Linha: BSB-001 | Data: 04/04/2026 | Horário: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
+[Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #2] Linha: BSB-001 | Data: 13/04/2026 | Horario: 14:00 | Assentos livres: 40/40 | Status: DISPONIVEL
 
 === Viagens com partida às 06:00 ===
-[Viagem #1] Linha: BSB-001 | Data: 04/04/2026 | Horário: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
+[Viagem #1] Linha: BSB-001 | Data: 13/04/2026 | Horario: 06:00 | Assentos livres: 4/4 | Status: DISPONIVEL
 
 ========================================
        DETALHES DA VIAGEM #1
@@ -113,7 +113,7 @@ Estado do Sistema central:
 Linha:      BSB-001 - Brasilia - Sao Paulo
 Origem:     Brasilia
 Destino:    Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Capacidade: 4 assentos
 Disponíveis:4 assentos
@@ -136,7 +136,7 @@ Reserva confirmada!
 Código:     BLT-0001-BSB-001-1
 Passageiro: Carlos Silva
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -151,7 +151,7 @@ Reserva confirmada!
 Código:     BLT-0002-BSB-001-2
 Passageiro: Ana Souza
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -172,7 +172,7 @@ Reserva confirmada!
 Código:     BLT-0003-BSB-001-3
 Passageiro: Pedro Lima
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -187,7 +187,7 @@ Reserva confirmada!
 Código:     BLT-0004-BSB-001-4
 Passageiro: Carlos Silva
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -200,8 +200,8 @@ Ana Souza adicionado à lista de espera. Posição: 1º
 Viagem lotada! Adicionando Pedro Lima à lista de espera...
 Pedro Lima adicionado à lista de espera. Posição: 2º
 === Lista de Espera - Viagem #1 ===
-1º [Espera] Passageiro: Ana Souza | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
-2º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
+1º [Espera] Passageiro: Ana Souza | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-12 18:49
+2º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-12 18:49
 
 =======================================================
   US07 - CANCELAMENTO DE RESERVA
@@ -217,7 +217,7 @@ Reserva confirmada!
 Código:     BLT-0005-BSB-001-1
 Passageiro: Ana Souza
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    06:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -228,7 +228,7 @@ Status:     CONFIRMADA
 
 Lista de espera apos cancelamento:
 === Lista de Espera - Viagem #1 ===
-1º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-03 20:52
+1º [Espera] Passageiro: Pedro Lima | Viagem: #1 | Qtd: 1 | Solicitado: 2026-04-12 18:49
 
 =======================================================
   US08 - RESERVA DE MULTIPLOS ASSENTOS
@@ -242,7 +242,7 @@ Lista de espera apos cancelamento:
 Código:     BLT-0006-BSB-001-1
 Passageiro: Pedro Lima
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    14:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -256,7 +256,7 @@ Status:     CONFIRMADA
 Código:     BLT-0007-BSB-001-2
 Passageiro: Pedro Lima
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    14:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -270,7 +270,7 @@ Status:     CONFIRMADA
 Código:     BLT-0008-BSB-001-3
 Passageiro: Pedro Lima
 Linha:      Brasilia - Sao Paulo
-Data:       04/04/2026
+Data:       13/04/2026
 Partida:    14:00
 Origem:     Brasilia
 Destino:    Sao Paulo
@@ -285,17 +285,17 @@ Status:     CONFIRMADA
 =======================================================
 
 === Reservas de Carlos Silva ===
-[Reserva #4] Passageiro: Carlos Silva | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 4 | Status: CONFIRMADA
+[Reserva #4] Passageiro: Carlos Silva | Viagem: #1 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 4 | Status: CONFIRMADA
 
 === Reservas de Ana Souza ===
-[Reserva #2] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 2 | Status: CONFIRMADA
-[Reserva #5] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 1 | Status: CONFIRMADA
+[Reserva #2] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 2 | Status: CONFIRMADA
+[Reserva #5] Passageiro: Ana Souza | Viagem: #1 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 1 | Status: CONFIRMADA
 
 === Reservas de Pedro Lima ===
-[Reserva #3] Passageiro: Pedro Lima | Viagem: #1 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 3 | Status: CONFIRMADA
-[Reserva #6] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 1 | Status: CONFIRMADA
-[Reserva #7] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 2 | Status: CONFIRMADA
-[Reserva #8] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 04/04/2026 | Assento: 3 | Status: CONFIRMADA
+[Reserva #3] Passageiro: Pedro Lima | Viagem: #1 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 3 | Status: CONFIRMADA
+[Reserva #6] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 1 | Status: CONFIRMADA
+[Reserva #7] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 2 | Status: CONFIRMADA
+[Reserva #8] Passageiro: Pedro Lima | Viagem: #2 | Linha: BSB-001 | Data: 13/04/2026 | Assento: 3 | Status: CONFIRMADA
 
 =======================================================
   SISTEMA ENCERRADO COM SUCESSO
