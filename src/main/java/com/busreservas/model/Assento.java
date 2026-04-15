@@ -1,20 +1,18 @@
 package com.busreservas.model;
 
+import java.util.Objects;
+
 /**
- * US04 - Entidade Assento
+ * US04 - Controle de Assentos
  * Responsável: Felipe
- *
- * Atributos conforme diagrama de entidades:
- *   - numero
- *   - ocupado (boolean)
- *   - passageiro (referência ao Passageiro que ocupou)
  */
 public class Assento {
 
-    private int numero;
+    private final int numero;
     private boolean ocupado;
-    private Passageiro passageiro; // US04 - referência direta ao passageiro
+    private Passageiro passageiro;
 
+    // US04/T1 - Criar classe Assento
     public Assento(int numero) {
         if (numero <= 0) {
             throw new IllegalArgumentException("Número do assento deve ser positivo.");
@@ -34,6 +32,9 @@ public class Assento {
         if (ocupado) {
             throw new IllegalStateException("Assento " + numero + " já está ocupado.");
         }
+        if (passageiro == null) {
+            throw new IllegalArgumentException("Passageiro não pode ser nulo.");
+        }
         this.ocupado = true;
         this.passageiro = passageiro;
     }
@@ -47,16 +48,28 @@ public class Assento {
     public int getNumero() { return numero; }
 
     public boolean isOcupado() { return ocupado; }
-    public void setOcupado(boolean ocupado) { this.ocupado = ocupado; }
 
     public Passageiro getPassageiro() { return passageiro; }
-    public void setPassageiro(Passageiro passageiro) { this.passageiro = passageiro; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Assento)) return false;
+        Assento assento = (Assento) o;
+        return numero == assento.numero;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numero);
+    }
 
     @Override
     public String toString() {
         String status = ocupado
                 ? "OCUPADO(" + (passageiro != null ? passageiro.getNome() : "?") + ")"
                 : "DISPONIVEL";
+
         return String.format("[Assento %02d | %s]", numero, status);
     }
 }
