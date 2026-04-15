@@ -27,6 +27,8 @@ public class Viagem {
         if (linha == null) throw new IllegalArgumentException("Linha nao pode ser nula.");
         if (horario == null) throw new IllegalArgumentException("Horario nao pode ser nulo.");
         if (data == null) throw new IllegalArgumentException("Data nao pode ser nula.");
+        // US03/T5 - Validar que a data não é passada
+        if (data.isBefore(LocalDate.now())) throw new IllegalArgumentException("Data da viagem nao pode ser no passado.");
         if (capacidadeTotal <= 0) throw new IllegalArgumentException("Capacidade deve ser positiva.");
 
         this.id = id;
@@ -67,6 +69,8 @@ public class Viagem {
     }
 
     public void atualizarStatus() {
+        // US03/T5 - Não sobrescrever status terminal (CANCELADA ou ENCERRADA)
+        if (status == StatusViagem.CANCELADA || status == StatusViagem.ENCERRADA) return;
         this.status = getAssentosDisponiveis().isEmpty()
                 ? StatusViagem.LOTADA : StatusViagem.DISPONIVEL;
     }
