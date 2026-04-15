@@ -117,6 +117,30 @@ public class ServicoViagem {
         return null;
     }
 
+    // US03/T6 - Filtrar por status (DISPONIVEL, LOTADA, CANCELADA, ENCERRADA)
+    public List<Viagem> filtrarPorStatus(Viagem.StatusViagem status) {
+        if (status == null) throw new IllegalArgumentException("Status nao pode ser nulo.");
+        List<Viagem> resultado = new ArrayList<>();
+        for (Viagem v : viagens) {
+            if (v.getStatus() == status) resultado.add(v);
+        }
+        return resultado;
+    }
+
+    // US03/T6 - Filtrar por cidade de origem
+    public List<Viagem> filtrarPorOrigem(String origem) {
+        if (origem == null || origem.isBlank()) {
+            throw new IllegalArgumentException("Cidade de origem nao pode ser vazia.");
+        }
+        List<Viagem> resultado = new ArrayList<>();
+        for (Viagem v : viagens) {
+            if (v.getLinha().getRota().getCidadeOrigem().equalsIgnoreCase(origem)) {
+                resultado.add(v);
+            }
+        }
+        return resultado;
+    }
+
     public List<Viagem> listarTodas() {
         return new ArrayList<>(viagens);
     }
