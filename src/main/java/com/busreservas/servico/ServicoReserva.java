@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class ServicoReserva {
 
-    private List<Reserva> reservas;
-    private List<Bilhete> bilhetes;
+    private final List<Reserva> reservas;
+    private final List<Bilhete> bilhetes;
     private int proximoIdReserva = 1;
     private int proximoIdBilhete = 1;
 
