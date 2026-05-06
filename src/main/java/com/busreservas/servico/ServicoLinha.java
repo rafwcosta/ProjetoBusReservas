@@ -4,8 +4,6 @@ import com.busreservas.model.Horario;
 import com.busreservas.model.LinhaOnibus;
 import com.busreservas.model.Rota;
 import com.busreservas.model.Usuario;
-import com.busreservas.model.PerfilUsuario;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +13,8 @@ import java.util.List;
  */
 public class ServicoLinha {
 
-    private List<LinhaOnibus> linhas;
-    private List<Rota> rotas;
+    private final List<LinhaOnibus> linhas;
+    private final List<Rota> rotas;
     private int proximoIdLinha = 1;
     private int proximoIdRota = 1;
     private int proximoIdHorario = 1;
@@ -27,8 +25,7 @@ public class ServicoLinha {
     }
 
     // US01/T4 - Cadastrar linha
-    public LinhaOnibus cadastrarLinha(Usuario usuario, String codigo, String nome,
-                                      Rota rota, double valorPassagem) {
+    public LinhaOnibus cadastrarLinha(Usuario usuario, String codigo, String nome, Rota rota, double valorPassagem) {
         // US01/T5 - Validar dados
         if (!usuario.podeGerenciarLinhas()) {
             throw new SecurityException("Usuário sem permissão para cadastrar linhas.");

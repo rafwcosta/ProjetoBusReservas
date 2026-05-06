@@ -2,7 +2,6 @@ package com.busreservas;
 
 import com.busreservas.model.*;
 import com.busreservas.servico.*;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -156,8 +155,6 @@ public class Main {
         // =====================================================
 
         Bilhete b1 = servicoReserva.reservar(passageiro1, v1, 1);
-        Bilhete b2 = servicoReserva.reservar(passageiro2, v1, 2);
-
         // Assento ja ocupado
         try {
             servicoReserva.reservar(passageiro3, v1, 1);
