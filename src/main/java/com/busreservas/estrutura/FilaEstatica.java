@@ -1,21 +1,53 @@
 package com.busreservas.estrutura;
 
 /**
- * US06/T1 - Fila Estática Genérica (FIFO)
- * Estrutura de dados principal do projeto
- * Responsável: Rafael
+ * Implementação de Fila Estática Genérica (FIFO - First In, First Out).
  *
- * Funciona com qualquer tipo (T) usando generics do Java.
- * Capacidade fixa definida na criação (array estático).
+ * <p>Estrutura de dados central do sistema BusReservas, utilizada para
+ * gerenciar a lista de espera de passageiros em viagens lotadas.</p>
+ *
+ * <p>A fila é implementada com array de capacidade fixa definida no momento
+ * da criação, usando índices circulares para {@code inicio} e {@code fim},
+ * o que permite o reaproveitamento de posições liberadas por {@link #dequeue()}
+ * sem necessidade de deslocamento de elementos.</p>
+ *
+ * <p><b>Complexidade das operações:</b></p>
+ * <ul>
+ *   <li>{@link #enqueue(Object)} — O(1)</li>
+ *   <li>{@link #dequeue()} — O(1)</li>
+ *   <li>{@link #peek()} — O(1)</li>
+ *   <li>{@link #getPosicao(Object)} — O(n)</li>
+ *   <li>{@link #remover(Object)} — O(n)</li>
+ * </ul>
+ *
+ * @param <T> tipo dos elementos armazenados na fila
+ * @author Rafael
+ * @version 1.0
+ * @see com.busreservas.model.ListaEspera
  */
 public class FilaEstatica<T> {
 
+    /** Array interno que armazena os elementos da fila. */
     private Object[] elementos;
+
+    /** Índice do primeiro elemento (frente da fila). */
     private int inicio;
+
+    /** Índice onde o próximo elemento será inserido (fim da fila). */
     private int fim;
+
+    /** Quantidade atual de elementos na fila. */
     private int tamanho;
+
+    /** Capacidade máxima da fila, definida no construtor. */
     private int capacidade;
 
+    /**
+     * Cria uma nova fila estática com a capacidade especificada.
+     *
+     * @param capacidade número máximo de elementos que a fila pode armazenar
+     * @throws IllegalArgumentException se {@code capacidade} for menor ou igual a zero
+     */
     public FilaEstatica(int capacidade) {
         if (capacidade <= 0) {
             throw new IllegalArgumentException("Capacidade da fila deve ser maior que zero.");
@@ -27,31 +59,50 @@ public class FilaEstatica<T> {
         this.tamanho = 0;
     }
 
-    // US06/T2 - Inserir elemento no fim da fila
+    /**
+     * Insere um elemento no fim da fila (enfileirar).
+     *
+     * <p>O índice {@code fim} avança circularmente: {@code fim = (fim + 1) % capacidade}.</p>
+     *
+     * @param elemento elemento a ser inserido; não pode ser {@code null}
+     * @return {@code true} se o elemento foi inserido com sucesso;
+     *         {@code false} se a fila estiver cheia
+     */
     public boolean enqueue(T elemento) {
         if (isFull()) {
-            return false; // Fila cheia
+            return false;
         }
         elementos[fim] = elemento;
-        fim = (fim + 1) % capacidade; // Fila circular
+        fim = (fim + 1) % capacidade;
         tamanho++;
         return true;
     }
 
-    // US06/T4 - Remover elemento do início da fila (FIFO)
+    /**
+     * Remove e retorna o elemento do início da fila (desenfileirar — FIFO).
+     *
+     * <p>O índice {@code inicio} avança circularmente: {@code inicio = (inicio + 1) % capacidade}.
+     * A referência ao elemento é anulada após a remoção para liberar memória.</p>
+     *
+     * @return o elemento removido do início da fila, ou {@code null} se a fila estiver vazia
+     */
     @SuppressWarnings("unchecked")
     public T dequeue() {
         if (isEmpty()) {
             return null;
         }
         T elemento = (T) elementos[inicio];
-        elementos[inicio] = null; // Liberar referência
+        elementos[inicio] = null;
         inicio = (inicio + 1) % capacidade;
         tamanho--;
         return elemento;
     }
 
-    // Consultar o primeiro elemento sem remover
+    /**
+     * Retorna o elemento do início da fila sem removê-lo.
+     *
+     * @return o primeiro elemento da fila, ou {@code null} se a fila estiver vazia
+     */
     @SuppressWarnings("unchecked")
     public T peek() {
         if (isEmpty()) {
@@ -60,18 +111,38 @@ public class FilaEstatica<T> {
         return (T) elementos[inicio];
     }
 
-    // US06/T3 - Verificar posição na fila (ordem de chegada)
+    /**
+     * Retorna a posição (1-based) de um elemento na fila.
+     *
+     * <p>A posição 1 indica que o elemento é o próximo a ser atendido.</p>
+     *
+     * @param elemento elemento a ser localizado
+     * @return posição do elemento na fila (começando em 1),
+     *         ou {@code -1} se não encontrado
+     */
     public int getPosicao(T elemento) {
         for (int i = 0; i < tamanho; i++) {
             int idx = (inicio + i) % capacidade;
             if (elementos[idx] != null && elementos[idx].equals(elemento)) {
-                return i + 1; // Posição 1-based
+                return i + 1;
             }
         }
-        return -1; // Não encontrado
+        return -1;
     }
 
-    // Remover elemento específico da fila (para cancelamentos)
+    /**
+     * Remove um elemento específico da fila, independente de sua posição.
+     *
+     * <p>Utilizado principalmente para remover um passageiro da lista de espera
+     * em caso de desistência antes da promoção automática.</p>
+     *
+     * <p>Após a remoção, os elementos seguintes são deslocados para preencher
+     * o espaço vazio, mantendo a ordem FIFO.</p>
+     *
+     * @param elemento elemento a ser removido
+     * @return {@code true} se o elemento foi encontrado e removido;
+     *         {@code false} caso contrário
+     */
     @SuppressWarnings("unchecked")
     public boolean remover(T elemento) {
         int posicao = -1;
@@ -82,23 +153,24 @@ public class FilaEstatica<T> {
                 break;
             }
         }
-
         if (posicao == -1) return false;
 
-        // Reorganizar fila após remoção
         for (int i = posicao; i < tamanho - 1; i++) {
-            int idxAtual = (inicio + i) % capacidade;
+            int idxAtual  = (inicio + i) % capacidade;
             int idxProximo = (inicio + i + 1) % capacidade;
             elementos[idxAtual] = elementos[idxProximo];
         }
-
         fim = (fim - 1 + capacidade) % capacidade;
         elementos[fim] = null;
         tamanho--;
         return true;
     }
 
-    // Retorna todos os elementos como array para iteração
+    /**
+     * Retorna todos os elementos da fila como array, na ordem FIFO.
+     *
+     * @return array com os elementos da fila na ordem de chegada
+     */
     @SuppressWarnings("unchecked")
     public T[] toArray() {
         Object[] resultado = new Object[tamanho];
@@ -108,11 +180,41 @@ public class FilaEstatica<T> {
         return (T[]) resultado;
     }
 
+    /**
+     * Verifica se a fila está vazia.
+     *
+     * @return {@code true} se não houver elementos na fila
+     */
     public boolean isEmpty() { return tamanho == 0; }
+
+    /**
+     * Verifica se a fila está cheia.
+     *
+     * @return {@code true} se a quantidade de elementos atingiu a capacidade máxima
+     */
     public boolean isFull() { return tamanho == capacidade; }
+
+    /**
+     * Retorna a quantidade atual de elementos na fila.
+     *
+     * @return número de elementos presentes
+     */
     public int getTamanho() { return tamanho; }
+
+    /**
+     * Retorna a capacidade máxima da fila.
+     *
+     * @return capacidade definida no construtor
+     */
     public int getCapacidade() { return capacidade; }
 
+    /**
+     * Retorna uma representação textual da fila, mostrando os elementos
+     * na ordem de chegada (frente → fim).
+     *
+     * @return string no formato {@code Fila [elem1 -> elem2 -> ...]}
+     *         ou {@code [Fila vazia]} se não houver elementos
+     */
     @Override
     public String toString() {
         if (isEmpty()) return "[Fila vazia]";

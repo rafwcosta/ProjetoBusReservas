@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class Sistema {
 
-    private final List<LinhaOnibus> linhas;
-    private final List<Viagem> viagens;
-    private final List<Passageiro> passageiros;
+    private List<LinhaOnibus> linhas;
+    private List<Viagem> viagens;
+    private List<Passageiro> passageiros;
 
     public Sistema() {
         this.linhas = new ArrayList<>();

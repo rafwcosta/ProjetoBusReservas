@@ -2,13 +2,14 @@ package com.busreservas;
 
 import com.busreservas.model.*;
 import com.busreservas.servico.*;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Sistema de Reservas de Passagen Interestaduais por Onibus
- * Demonstração completa de todas as User Stories
+ * Sistema de Reservas de Passagens Interestaduais por Onibus
+ * Demonstracao completa de todas as User Stories
  */
 public class Main {
 
@@ -18,7 +19,7 @@ public class Main {
         System.out.println("  SISTEMA DE RESERVAS DE PASSAGENS INTERESTADUAIS");
         System.out.println("=======================================================\n");
 
-        // Classe central do sistema (conforme diagrama de entidades)       
+        // Classe central do sistema (conforme diagrama de entidades)
         Sistema sistema = new Sistema();
 
         // Inicializar servicos
@@ -155,7 +156,6 @@ public class Main {
         // =====================================================
 
         Bilhete b1 = servicoReserva.reservar(passageiro1, v1, 1);
-        @SuppressWarnings("unused")
         Bilhete b2 = servicoReserva.reservar(passageiro2, v1, 2);
 
         // Assento ja ocupado

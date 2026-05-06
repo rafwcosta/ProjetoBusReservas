@@ -1,10 +1,9 @@
 package com.busreservas.servico;
 
 import com.busreservas.model.*;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * US05, US06, US07, US08 - Serviço de Reservas
@@ -12,18 +11,14 @@ import java.util.Map;
  */
 public class ServicoReserva {
 
-    private final List<Reserva> reservas;
-    private final List<Bilhete> bilhetes;
-    private final Map<Integer, ListaEspera> listasEspera; // chave = viagemId
+    private List<Reserva> reservas;
+    private List<Bilhete> bilhetes;
     private int proximoIdReserva = 1;
     private int proximoIdBilhete = 1;
-
-    private static final int CAPACIDADE_LISTA_ESPERA = 50;
 
     public ServicoReserva() {
         this.reservas = new ArrayList<>();
         this.bilhetes = new ArrayList<>();
-        this.listasEspera = new HashMap<>();
     }
 
     // US05 - Reservar um assento
@@ -106,7 +101,7 @@ public class ServicoReserva {
 
     // US07 - Cancelar reserva e promover da lista de espera
     public boolean cancelar(Passageiro passageiro, int reservaId) {
-        // US07/T1 - Localizar a reserva
+        // US07/T1 - Localizar reserva
         Reserva reserva = buscarReservaPorId(reservaId);
         if (reserva == null) {
             System.out.println("Reserva #" + reservaId + " não encontrada.");
@@ -133,9 +128,7 @@ public class ServicoReserva {
 
     // US06 - Adicionar à lista de espera
     public void adicionarListaEspera(Passageiro passageiro, Viagem viagem, int qtd) {
-        listasEspera.putIfAbsent(viagem.getId(),
-                new ListaEspera(viagem.getId(), CAPACIDADE_LISTA_ESPERA));
-        ListaEspera lista = listasEspera.get(viagem.getId());
+        ListaEspera lista = viagem.getListaEspera();
         boolean inserido = lista.inserir(passageiro, viagem, qtd);
         if (inserido) {
             int posicao = lista.getPosicao(passageiro);
@@ -146,7 +139,7 @@ public class ServicoReserva {
 
     // US06/T5 - Promover primeiro da lista de espera automaticamente
     private void promoverListaEspera(Viagem viagem, int numeroAssento) {
-        ListaEspera lista = listasEspera.get(viagem.getId());
+        ListaEspera lista = viagem.getListaEspera();
         if (lista == null || lista.isEmpty()) return;
 
         ListaEspera.EntradaEspera proximo = lista.proximoDaFila();
@@ -171,12 +164,19 @@ public class ServicoReserva {
     }
 
     public void exibirListaEspera(int viagemId) {
-        ListaEspera lista = listasEspera.get(viagemId);
-        if (lista == null || lista.isEmpty()) {
-            System.out.println("Sem passageiros na lista de espera para a viagem #" + viagemId);
-            return;
+        // busca a viagem nas reservas existentes para obter a ListaEspera interna
+        for (Reserva r : reservas) {
+            if (r.getViagem().getId() == viagemId) {
+                ListaEspera lista = r.getViagem().getListaEspera();
+                if (lista.isEmpty()) {
+                    System.out.println("Sem passageiros na lista de espera para a viagem #" + viagemId);
+                } else {
+                    lista.exibirFila();
+                }
+                return;
+            }
         }
-        lista.exibirFila();
+        System.out.println("Sem passageiros na lista de espera para a viagem #" + viagemId);
     }
 
     private Reserva buscarReservaPorId(int id) {

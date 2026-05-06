@@ -5,10 +5,10 @@ package com.busreservas.model;
  */
 public class Bilhete {
 
-    private final int id;
-    private final Reserva reserva;
-    private final double valor;
-    private final String codigoBilhete;
+    private int id;
+    private Reserva reserva;
+    private double valor;
+    private String codigoBilhete;
 
     public Bilhete(int id, Reserva reserva, double valor) {
         this.id = id;
@@ -31,21 +31,21 @@ public class Bilhete {
 
     @Override
     public String toString() {
-        return String.format("""
-                            ==============================
-                                    BILHETE DE VIAGEM    
-                            ==============================
-                            C\u00f3digo:     %s
-                            Passageiro: %s
-                            Linha:      %s
-                            Data:       %s
-                            Partida:    %s
-                            Origem:     %s
-                            Destino:    %s
-                            Assento:    %d
-                            Valor:      R$ %.2f
-                            Status:     %s
-                            ==============================""",
+        return String.format(
+                "==============================\n" +
+                "         BILHETE DE VIAGEM    \n" +
+                "==============================\n" +
+                "Código:     %s\n" +
+                "Passageiro: %s\n" +
+                "Linha:      %s\n" +
+                "Data:       %s\n" +
+                "Partida:    %s\n" +
+                "Origem:     %s\n" +
+                "Destino:    %s\n" +
+                "Assento:    %d\n" +
+                "Valor:      R$ %.2f\n" +
+                "Status:     %s\n" +
+                "==============================",
                 codigoBilhete,
                 reserva.getPassageiro().getNome(),
                 reserva.getViagem().getLinha().getNome(),
